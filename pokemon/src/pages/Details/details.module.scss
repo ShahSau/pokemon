@@ -1,0 +1,143 @@
+.conatiner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.imageContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+    height: 400px;
+    
+}
+
+.floatparentelement { 
+    width: 100%; 
+    // overflow: hidden;
+} 
+.floatchildelement { 
+    float: left; 
+    width: 50%; 
+    margin-top: 5%;
+    @media screen and (max-width: 900px) {
+        width: 100%;
+        margin-top: 15%;
+        
+    }
+} 
+.left { 
+
+    margin: 0% 2%; 
+    height: 200px; 
+} 
+.right { 
+    margin: 0% 2%; 
+    height: 100px; 
+
+    @media screen and (max-width: 900px) {
+        visibility: hidden;
+        
+    } 
+}
+
+.nameContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -12px;
+    width: 100%;
+    height: 100px;
+}
+.name{
+    font-size: 25px;
+    color: rgb(4,4,4,0.8);
+}
+
+
+.type{
+    font-size: 20px;
+    color: rgb(4, 4, 4, 0.6);
+}
+
+
+.abilityContainer{
+  text-align: center;
+  padding: 10px;
+}
+
+.special{
+    display: flex;
+}
+
+.feature{
+    flex: 0 0 65%;
+}
+
+.power{
+    flex: 1;
+}
+
+.abilityContainernew{
+    top: -170px;
+    position: relative;
+    @media screen and (max-width: 900px) {
+        top: -400px;
+        padding: auto;
+    }
+  }
+
+.catch{
+    position: fixed;
+    top: 850px;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+
+}
+
+
+.modal{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    z-index: 1000;
+    border-radius: 10px;
+
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 80px;
+    background: rgb(187, 234, 179);
+    border-radius: 5px;
+    width: 300px;
+    height: 200px;
+    position: relative;
+    transition: all 5s ease-in-out;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+    
+  }
+
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+  }
+
+  .content {
+    max-height: 30%;
+    // overflow: auto;
+  }

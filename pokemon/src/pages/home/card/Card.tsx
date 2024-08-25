@@ -6,6 +6,7 @@ import {
   URL_EVOLUCIONES,
   URL_POKEMON,
 } from "../../../api/apiRest";
+import { Link } from "react-router-dom";
 
 
 
@@ -28,6 +29,7 @@ export default function Card({ card }:{card:PokemonArray}) {
 
   const [itemPokemon, setItemPokemon] = useState({});
   const [especiePokemon, setEspeciePokemon] = useState<EspeciePokemon>();
+
 
   
   const [evoluciones, setEvoluciones] = useState<Evolution[]>([]);
@@ -109,8 +111,10 @@ export default function Card({ card }:{card:PokemonArray}) {
   } else if (pokeId?.length === 2) {
     pokeId = "0" + pokeId;
   }
+  
   return (
-    <div className={css.card} onClick={()=>console.log("SSSSSSS")}>
+    <Link to={`/pokemon/details/${card.url.split("pokemon")[1].split("/")[1]}`}>
+    <div className={css.card}>
       <img
         className={css.img_poke}
         style={itemPokemon?.sprites?.other["official-artwork"]?.front_default ? {display: "block"} : {display: "none"}}
@@ -142,7 +146,6 @@ export default function Card({ card }:{card:PokemonArray}) {
 
         <div className={css.div_type_color}>
           {itemPokemon?.types?.map((ti: { type: { name: string } }, index: number) => {
-            console.log("ti", ti);
             return (
               <h6
                 key={index}
@@ -167,5 +170,6 @@ export default function Card({ card }:{card:PokemonArray}) {
         </div>
       </div>
     </div>
+    </Link>
   );
 }

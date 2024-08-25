@@ -43,6 +43,7 @@ export default function LayoutHome() {
 
     const results:PokemonArray[] = await Promise.all(promises);
     setGlobalPokemon(results);
+    localStorage.setItem('pokemons', JSON.stringify(results))
   };
 
 
@@ -66,53 +67,51 @@ export default function LayoutHome() {
 
       <div className={css.card_content}>
         {filterPokemons.map((card, index) => {
-            console.log("arrayPokemon", card);
           return <Card key={index} card={card} />;
         })}
       </div>
 
       <section className={css.section_pagination}>
-        <div className={css.div_pagination}>
-          <span className={css.item_izquierdo}
-          
-          onClick={() => {
-            if (xpage === 1) {
-              return console.log("first page");
-            }
-            setXpage(xpage - 1);
-          }}
-          
-          >
-            <FaIcons.FaAngleLeft />
-          </span>
-          
-          {xpage > 2  && <span className={css.item} onClick={()=> setXpage(xpage-2)}> {xpage-2} </span>}
-          {xpage > 1 && <span className={css.item} onClick={()=> setXpage(xpage-1)}> {xpage-1} </span>}
-          <span className={css.item}> {xpage} </span>
-          {xpage < (Math.floor(globalPokemon?.length / 15)-3) &&<span className={css.item} onClick={()=> setXpage(xpage+1)}> {xpage+1} </span>}
-          {xpage < (Math.floor(globalPokemon?.length / 15)-3) && <span className={css.item} onClick={()=> setXpage(xpage+2)}> {xpage+2} </span>}
-          <span className={css.item}> ... </span>
-          {xpage < (Math.floor(globalPokemon?.length / 15)-2) && <span className={css.item} onClick={()=> setXpage(Math.floor(globalPokemon?.length / 15)-2)}> {Math.floor(globalPokemon?.length / 15)-2} </span>}
-          {xpage < (Math.floor(globalPokemon?.length / 15)-2) && <span className={css.item} onClick={()=> setXpage(Math.floor(globalPokemon?.length / 15)-1)}> {Math.floor(globalPokemon?.length / 15)-1} </span>}
-          {xpage < (Math.floor(globalPokemon?.length / 15)-1) && <span className={css.item} onClick={()=>setXpage(Math.floor(globalPokemon?.length / 15))}>
-            {" "}
-            {Math.floor(globalPokemon?.length / 15)}{" "}
-          </span>}
-          {xpage < (Math.floor(globalPokemon?.length / 15)) && <span
-            className={css.item_derecho}
-            onClick={() => {
-              if (xpage === 67) {
-                return console.log("last page");
-              }
-              setXpage(xpage + 1);
-            }}
-          >
-            {" "}
-            <FaIcons.FaAngleRight />{" "}
-          </span>}
-        </div>
+            <div className={css.div_pagination}>
+              <span className={css.item_izquierdo}
+              
+              onClick={() => {
+                if (xpage === 1) {
+                  return console.log("first page");
+                }
+                setXpage(xpage - 1);
+              }}
+              
+              >
+                <FaIcons.FaAngleLeft />
+              </span>
+              
+              {xpage > 2  && <span className={css.item} onClick={()=> setXpage(xpage-2)}> {xpage-2} </span>}
+              {xpage > 1 && <span className={css.item} onClick={()=> setXpage(xpage-1)}> {xpage-1} </span>}
+              <span className={css.item}> {xpage} </span>
+              {xpage < (Math.floor(globalPokemon?.length / 15)-3) &&<span className={css.item} onClick={()=> setXpage(xpage+1)}> {xpage+1} </span>}
+              {xpage < (Math.floor(globalPokemon?.length / 15)-3) && <span className={css.item} onClick={()=> setXpage(xpage+2)}> {xpage+2} </span>}
+              <span className={css.item}> ... </span>
+              {xpage < (Math.floor(globalPokemon?.length / 15)-2) && <span className={css.item} onClick={()=> setXpage(Math.floor(globalPokemon?.length / 15)-2)}> {Math.floor(globalPokemon?.length / 15)-2} </span>}
+              {xpage < (Math.floor(globalPokemon?.length / 15)-2) && <span className={css.item} onClick={()=> setXpage(Math.floor(globalPokemon?.length / 15)-1)}> {Math.floor(globalPokemon?.length / 15)-1} </span>}
+              {xpage < (Math.floor(globalPokemon?.length / 15)-1) && <span className={css.item} onClick={()=>setXpage(Math.floor(globalPokemon?.length / 15))}>
+                {" "}
+                {Math.floor(globalPokemon?.length / 15)}{" "}
+              </span>}
+              {xpage < (Math.floor(globalPokemon?.length / 15)) && <span
+                className={css.item_derecho}
+                onClick={() => {
+                  if (xpage === 67) {
+                    return console.log("last page");
+                  }
+                  setXpage(xpage + 1);
+                }}
+              >
+                {" "}
+                <FaIcons.FaAngleRight />{" "}
+              </span>}
+            </div>
       </section>
-      
 
     </div>
   );

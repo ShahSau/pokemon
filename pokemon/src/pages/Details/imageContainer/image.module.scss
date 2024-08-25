@@ -1,0 +1,44 @@
+.circleContainer {
+    display: flex;
+    margin-top: 3rem;
+    .outerCircle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 24rem;
+      width: 24rem;
+      border-radius: 50rem;
+      position: relative;
+    }
+    .innerCircle {
+      height: 20rem;
+      width: 20rem;
+      //border: 0.3rem solid red;
+      border-radius: 40rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        max-inline-size: 100%;
+        block-size: auto;
+        z-index: 100;
+        height: 17rem;
+      }
+    }
+    .lines {
+      display: flex;
+      gap: 3rem;
+      position: absolute;
+      .line {
+        height: 28rem;
+        width: 0.3rem;
+        //background-color: red;
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  
+  
+  
+  
