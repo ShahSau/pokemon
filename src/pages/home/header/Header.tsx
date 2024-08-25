@@ -1,7 +1,7 @@
 import React from "react";
 import * as FaIcons from "react-icons/fa";
 import css from "./header.module.scss";
-import logo from "../../../assets/pokemon.png";
+import logo from "/pokemon.png";
 
 export default function Header({ obtenerSearch }: { obtenerSearch: (event: string) => void }) {
   return (
