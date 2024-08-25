@@ -9,6 +9,8 @@ import {
 import Image from './imageContainer/Image';
 import css from "./details.module.scss";
 import logo from "/pokemonlogo.png";
+import Header from '../home/header/Header';
+
 const Details = () => {
     const [itemPokemon, setItemPokemon] = useState([]);
     const [ability, setAbility] = useState({});
@@ -52,8 +54,9 @@ const Details = () => {
     console.log(numberEven)
     
   return (
-    
-    <div className={css.conatiner}>
+    <>
+      <Header obtenerSearch={() => {}} />
+      <div className={css.conatiner}>
         {/* image*/}
         <div className={css.imageContainer}>
             <Image image={itemPokemon?.sprites?.other["official-artwork"].front_default} color={itemPokemon?.types?.[0]?.type?.name}/>
@@ -137,6 +140,8 @@ const Details = () => {
         </div>}
 
     </div>
+    </>
+    
   )
 }
 
